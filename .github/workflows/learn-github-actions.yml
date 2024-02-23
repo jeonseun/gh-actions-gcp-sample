@@ -12,4 +12,5 @@ jobs:
       with:
         host: ${{ secrets.GCE_INSTANCE_HOST }}
         user: ${{ secrets.GCE_USER }}
+        key: ${{ secrets.GCE_SSH_KEY }}
         first_ssh: echo 'hello world'
