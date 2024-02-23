@@ -10,4 +10,5 @@ jobs:
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@v1.0.3
       with:
+        host: ${{ secrets.HOST }}
         script: whoami
