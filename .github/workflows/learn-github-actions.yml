@@ -11,5 +11,5 @@ jobs:
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
-        key: ${{ secrets.GCE_SSH_KEY }}
+        key: ${{ secrets.KEY }}
         script: whoami
