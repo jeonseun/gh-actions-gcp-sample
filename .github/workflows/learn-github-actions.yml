@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - run: ls -al
-    
-      
+    - name: gce ssh scp pipeline
+      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      with:
+        host: ${{ secrets.GCE_INSTANCE_HOST }}
+        user: ${{ secrets.GCE_USER }}
+        key: ${{ secrets.GCE_SSH_KEY }}
+        first_ssh: touch text1.txt
+        scp: ./sample.txt => ./build/sample.txt
