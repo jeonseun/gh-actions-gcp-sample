@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - name: gce ssh scp pipeline
-      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+    - name: ssh-scp-ssh-pipelines
+      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
       with:
         host: ${{ secrets.GCE_INSTANCE_HOST }}
         user: ${{ secrets.GCE_USER }}
