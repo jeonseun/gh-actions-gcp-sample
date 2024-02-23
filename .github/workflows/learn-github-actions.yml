@@ -21,12 +21,12 @@ jobs:
           username: ${{ secrets.GCE_USER }}
           key: ${{ secrets.GCE_SSH_KEY }}
           source: ./build/libs/gh-actions-gcp-sample-0.0.1-SNAPSHOT.jar
-          target: /home/${{ secrets.GCE_USER }}/.gitignore
+          target: /home/${{ secrets.GCE_USER }}/app/gh-actions-gcp-sample-0.0.1-SNAPSHOT.jar
       - name: executing remote ssh commands using key
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.GCE_INSTANCE_HOST }}
           username: ${{ secrets.GCE_USER }}
           key: ${{ secrets.GCE_SSH_KEY }}
-          script: java -jar ./build/libs/gh-actions-gcp-sample-0.0.1-SNAPSHOT.jar
+          script: java -jar /home/${{ secrets.GCE_USER }}/app/gh-actions-gcp-sample-0.0.1-SNAPSHOT.jar
         
