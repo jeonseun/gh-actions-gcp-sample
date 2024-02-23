@@ -12,6 +12,6 @@ jobs:
       with:
         host: ${{ secrets.GCE_INSTANCE_HOST }}
         user: ${{ secrets.GCE_USER }}
-        key: ${{ secrets.GCE_SSH_KEY }}
+        # key: ${{ secrets.GCE_SSH_KEY }}
         first_ssh: touch text1.txt
         scp: ./sample.txt => ./build/sample.txt
