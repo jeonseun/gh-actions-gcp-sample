@@ -4,13 +4,16 @@ on: [push]
 
 jobs:
   check-version:
+    environment: albano-gce-instance
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
     - name: executing remote ssh commands using key
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        script: whoami
+        host: ${{ secrets.GCE_INSTANCE_HOST }}
+        username: ${{ secrets.GCE_USER }}
+        key: ${{ secrets.GCE_SSH_KEY }}
+        script: |
+          whoami
+          ls -al
