@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
-    - name: ssh-scp-ssh-pipelines
-      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-actions@v1.0.3
       with:
         host: ${{ secrets.GCE_INSTANCE_HOST }}
-        user: ${{ secrets.GCE_USER }}
+        username: ${{ secrets.GCE_USER }}
         key: ${{ secrets.GCE_SSH_KEY }}
-        first_ssh: echo 'hello world'
+        script: whoami
