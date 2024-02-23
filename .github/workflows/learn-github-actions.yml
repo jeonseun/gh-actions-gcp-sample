@@ -13,8 +13,8 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
       - run: ./gradlew bootJar
-      - uses: actions/checkout@v4
-      - name: copy file via ssh password
+      - run: ls -al
+      - name: copy file via ssh key
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.GCE_INSTANCE_HOST }}
