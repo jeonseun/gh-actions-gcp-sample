@@ -14,19 +14,20 @@ jobs:
           java-version: '21'
       - run: ./gradlew bootJar
       - run: ls -al
-      - name: copy file via ssh key
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.GCE_INSTANCE_HOST }}
-          username: ${{ secrets.GCE_USER }}
-          key: ${{ secrets.GCE_SSH_KEY }}1
-          source: .gitignore
-          target: /home/${{ secrets.GCE_USER }}/.gitignore
+      # - name: copy file via ssh key
+      #   uses: appleboy/scp-action@v0.1.7
+      #   with:
+      #     host: ${{ secrets.GCE_INSTANCE_HOST }}
+      #     username: ${{ secrets.GCE_USER }}
+      #     key: ${{ secrets.GCE_SSH_KEY }}1
+      #     source: .gitignore
+      #     target: /home/${{ secrets.GCE_USER }}/.gitignore
       - name: executing remote ssh commands using key
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.GCE_INSTANCE_HOST }}
           username: ${{ secrets.GCE_USER }}
           key: ${{ secrets.GCE_SSH_KEY }}
+          script: whoami
           # script: java -jar /home/${{ secrets.GCE_USER }}/app/build/libs/gh-actions-gcp-sample-0.0.1-SNAPSHOT.jar
         
