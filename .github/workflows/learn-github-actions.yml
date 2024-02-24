@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.GCE_SSH_KEY }}
           source: "foobar/sample.txt"
           target: /home/${{ secrets.GCE_USER }}/app
-          # strip_components: 2
+          strip_components: 1
       # - name: executing remote ssh commands using key
       #   uses: appleboy/ssh-action@v1.0.3
       #   with:
