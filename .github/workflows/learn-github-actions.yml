@@ -14,8 +14,8 @@ jobs:
           host: ${{ secrets.GCE_INSTANCE_HOST }}
           username: ${{ secrets.GCE_USER }}
           key: ${{ secrets.GCE_SSH_KEY }}1
-          source: foobar/sample.txt
-          target: /home/${{ secrets.GCE_USER}}
+          # source: foobar/sample.txt
+          # target: /home/${{ secrets.GCE_USER}}
           # strip_components: 2
       # - uses: actions/setup-java@v4
       #   with:
