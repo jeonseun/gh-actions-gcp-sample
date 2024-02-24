@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - name: copy file via ssh key
-        uses: appleboy/scp-action@v0.1.7
+      
+      - name: executing remote ssh commands using key
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.GCE_INSTANCE_HOST }}
           username: ${{ secrets.GCE_USER }}
-          key: ${{ secrets.GCE_SSH_KEY }}1
-          source: ./foobar/sample.txt
-          target: /home/${{ secrets.GCE_USER}}/sample.txt
-          # strip_components: 2
+          key: ${{ secrets.GCE_SSH_KEY }}
+          script: ls -al
+          
       # - uses: actions/setup-java@v4
       #   with:
       #     distribution: 'temurin'
